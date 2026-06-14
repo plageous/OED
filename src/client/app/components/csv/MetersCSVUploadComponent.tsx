@@ -46,7 +46,7 @@ export default function MetersCSVUploadComponent() {
 	const navigate = useNavigate();
 
 	const [meterData, setMeterData] = React.useState<MetersCSVUploadPreferences>(MetersCSVUploadDefaults);
-	const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
+	const [selectedFile, setSelectedFile] = React.useState<File | undefined>(undefined);
 	const [isValidFileType, setIsValidFileType] = React.useState<boolean>(false);
 	// For the case of invalid file type is submitted and a unsaved warning
 	// is necessary.
