@@ -40,7 +40,7 @@ export default function MetersCSVUploadComponent() {
 
 	// Stores the URL of the page that the user tries to go to before
 	// being blocked by the unsaved warning.
-	const [attemptedDestinationURL, setAttemptedDestinationURL] = useState<string | null>(null);
+	const [attemptedDestinationURL, setAttemptedDestinationURL] = useState<string | undefined>(undefined);
 	// When blocker.state is unblocked, useNavigate() is used to navigate
 	// to the attempted destination URL.
 	const navigate = useNavigate();
@@ -208,7 +208,7 @@ export default function MetersCSVUploadComponent() {
 						// blocked.
 						if (attemptedDestinationURL) {
 							navigate(attemptedDestinationURL);
-							setAttemptedDestinationURL(null);
+							setAttemptedDestinationURL(undefined);
 						}
 						// blocker.proceed() is undefined unless it is inside of an
 						// if statement. This if statement will only call blocker.proceed()
@@ -219,7 +219,7 @@ export default function MetersCSVUploadComponent() {
 					}}
 					onCancel={() => {
 						setShowUnsavedWarning(false);
-						setAttemptedDestinationURL(null);
+						setAttemptedDestinationURL(undefined);
 						// blocker.state = 'unblocked' does not change the state,
 						// reset() is the proper way to reset the state to an
 						// unblocked state.
