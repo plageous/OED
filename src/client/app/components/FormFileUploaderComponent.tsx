@@ -8,7 +8,7 @@ import { useTranslate } from '../redux/componentHooks';
 
 interface FileUploader {
 	isInvalid: boolean;
-	onFileChange: (file: File | null) => void;
+	onFileChange: (file: File | undefined) => void;
 }
 
 /**
@@ -19,7 +19,7 @@ interface FileUploader {
 export default function FileUploaderComponent(props: FileUploader) {
 	const translate = useTranslate();
 	const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const file = event.target.files?.[0] || null;
+		const file = event.target.files?.[0];
 		props.onFileChange(file);
 	};
 
